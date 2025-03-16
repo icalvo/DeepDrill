@@ -49,6 +49,7 @@ struct StandardComplex {
     inline double abs() const {
         double absr = std::abs(re);
         double absi = std::abs(im);
+        if (absr == 0.0 && absi == 0.0) return 0.0;
         if (absr > absi)
             return absr * std::sqrt(1+(absi/absr)*(absi/absr));
         else
